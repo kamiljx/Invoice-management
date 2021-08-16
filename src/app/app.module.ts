@@ -17,7 +17,7 @@ import { AddInvoiceComponent } from './dashboard/invoices/add-invoice/add-invoic
 import { MaterialModule } from './shared/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatTextComponent } from './forms/mat-text/mat-text.component';
-import { MatDateComponent } from './forms/mat-date/mat-date.component';
+
 
 @NgModule({
   declarations: [
@@ -26,7 +26,6 @@ import { MatDateComponent } from './forms/mat-date/mat-date.component';
     InvoicesComponent,
     AddInvoiceComponent,
     MatTextComponent,
-    MatDateComponent,
   ],
   imports: [
     BrowserModule,

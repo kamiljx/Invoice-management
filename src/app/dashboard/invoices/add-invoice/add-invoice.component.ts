@@ -29,6 +29,8 @@ export class AddInvoiceComponent implements OnInit {
       customer: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
       address: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
       taxNo: [, [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
+      invoiceDate: [[Validators.required]],
+      invoicePaymentDate: [[Validators.required]]
     })
   }
 

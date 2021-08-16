@@ -13,8 +13,19 @@
         </div>
         
         <div class="col-md-4">
-          <app-mat-date [label]='"Date"'></app-mat-date>
-          <app-mat-date [label]='"Payment date"'></app-mat-date>
+          <mat-form-field appearance="fill">
+            Date
+            <input matInput [matDatepicker]="picker" formControlName="invoiceDate" />
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          Payment deadline
+          <input matInput [matDatepicker]="picker1" formControlName="invoicePaymentDate" />
+          <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+          <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+        
         </div>
         <div class="col-md-4">
           <app-mat-text [formControl]='invoice.controls["customer"]' [validate]='"customer"' [label]='"Customer"' [type]='"text"' [placeholder]='"Customer detail"' [hint]='"customer hint"' ></app-mat-text>
