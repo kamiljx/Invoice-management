@@ -18,6 +18,7 @@ import { MaterialModule } from './shared/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatTextComponent } from './forms/mat-text/mat-text.component';
 import { InvoiceItemsComponent } from './dashboard/invoices/add-invoice/invoice-items/invoice-items.component';
+import { CreateInvoiceItemComponent } from './dashboard/invoices/add-invoice/invoice-items/create-invoice-item/create-invoice-item.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { InvoiceItemsComponent } from './dashboard/invoices/add-invoice/invoice-
     AddInvoiceComponent,
     MatTextComponent,
     InvoiceItemsComponent,
+    CreateInvoiceItemComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,6 +47,7 @@ import { InvoiceItemsComponent } from './dashboard/invoices/add-invoice/invoice-
     ReactiveFormsModule
   ],
   providers: [],
+  entryComponents: [CreateInvoiceItemComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

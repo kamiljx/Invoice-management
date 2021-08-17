@@ -16,16 +16,22 @@
             <td mat-cell *matCellDef="let element">{{element.item}}</td>
         </ng-container>
 
-        <!-- Name Column -->
+        <!-- Name of product -->
         <ng-container matColumnDef="itemQuantity">
-            <th mat-header-cell *matHeaderCellDef>Name</th>
+            <th mat-header-cell *matHeaderCellDef>Quantity</th>
             <td mat-cell *matCellDef="let element">{{element.itemQuantity}}</td>
         </ng-container>
 
-        <!-- Weight Column -->
+        <!-- Net price -->
         <ng-container matColumnDef="netPrice">
             <th mat-header-cell *matHeaderCellDef>Net price</th>
             <td mat-cell *matCellDef="let element">{{element.netPrice}}</td>
+        </ng-container>
+
+        <!-- Net value -->
+        <ng-container matColumnDef="netValue">
+            <th mat-header-cell *matHeaderCellDef>Net value</th>
+            <td mat-cell *matCellDef="let element">{{element.netValue}}</td>
         </ng-container>
 
         <!-- Symbol Column -->
@@ -33,9 +39,16 @@
             <th mat-header-cell *matHeaderCellDef>Gross price</th>
             <td mat-cell *matCellDef="let element">{{element.grossPrice}}</td>
         </ng-container>
-        <ng-container matColumnDef="vatRate">
-            <th mat-header-cell *matHeaderCellDef>Vat rate</th>
-            <td mat-cell *matCellDef="let element">{{element.vatRate}}</td>
+
+        <!-- Tax rate -->
+        <ng-container matColumnDef="taxRate">
+            <th mat-header-cell *matHeaderCellDef>Tax rate</th>
+            <td mat-cell *matCellDef="let element">{{element.taxRate}}</td>
+        </ng-container>
+        <!-- Tax value -->
+        <ng-container matColumnDef="taxValue">
+            <th mat-header-cell *matHeaderCellDef>Tax value</th>
+            <td mat-cell *matCellDef="let element">{{element.taxValue}}</td>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
