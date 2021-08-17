@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="demo-button-container">
+        <button mat-raised-button (click)="addData()" class="demo-button">
+            Add items
+        </button>
+    </div>
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+        <!-- Position Column -->
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef>No.</th>
+            <td mat-cell *matCellDef="let element let i = index">{{i +1}}</td>
+        </ng-container>
+        <ng-container matColumnDef="item">
+            <th mat-header-cell *matHeaderCellDef>Item</th>
+            <td mat-cell *matCellDef="let element">{{element.item}}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="itemQuantity">
+            <th mat-header-cell *matHeaderCellDef>Name</th>
+            <td mat-cell *matCellDef="let element">{{element.itemQuantity}}</td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="netPrice">
+            <th mat-header-cell *matHeaderCellDef>Net price</th>
+            <td mat-cell *matCellDef="let element">{{element.netPrice}}</td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="grossPrice">
+            <th mat-header-cell *matHeaderCellDef>Gross price</th>
+            <td mat-cell *matCellDef="let element">{{element.grossPrice}}</td>
+        </ng-container>
+        <ng-container matColumnDef="vatRate">
+            <th mat-header-cell *matHeaderCellDef>Vat rate</th>
+            <td mat-cell *matCellDef="let element">{{element.vatRate}}</td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    </table>
+    <button mat-raised-button class="saveButton" (click)="saveItems()">Save</button>
+</div>

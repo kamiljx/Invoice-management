@@ -17,6 +17,7 @@ import { AddInvoiceComponent } from './dashboard/invoices/add-invoice/add-invoic
 import { MaterialModule } from './shared/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatTextComponent } from './forms/mat-text/mat-text.component';
+import { InvoiceItemsComponent } from './dashboard/invoices/add-invoice/invoice-items/invoice-items.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { MatTextComponent } from './forms/mat-text/mat-text.component';
     InvoicesComponent,
     AddInvoiceComponent,
     MatTextComponent,
+    InvoiceItemsComponent,
   ],
   imports: [
     BrowserModule,
