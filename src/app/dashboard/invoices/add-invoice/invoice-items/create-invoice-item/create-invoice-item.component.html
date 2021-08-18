@@ -1,7 +1,6 @@
 <div class="container">
     <form [formGroup]='item' (ngSubmit)="addItem()" autocomplete="off">
         <div class="row">
-
             <div class="col-lg-8">
                 <app-mat-text [formControl]='item.controls["item"]' [validate]='"item"' [label]='"item"' [type]='"text"'
                     [placeholder]='"Item detail"' [hint]='"Item"'></app-mat-text>
@@ -44,10 +43,9 @@
     </form>
     <div class="button-row">
         <mat-dialog-actions align="end">
+            <button mat-raised-button matDialogClose>Cancel</button>
             <button mat-raised-button color="primary" mat-dialog-close [disabled]="!item.valid" (click)="addItem()"
                 type="submit">Submit</button>
         </mat-dialog-actions>
     </div>
-    <button (click)="calculateGrossPrice()">sda</button>
-    {{item.value | json}}
 </div>

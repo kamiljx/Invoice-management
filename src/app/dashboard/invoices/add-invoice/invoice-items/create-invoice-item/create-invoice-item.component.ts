@@ -64,8 +64,13 @@ export class CreateInvoiceItemComponent implements OnInit {
 
     return this.item.controls['grossPrice'].setValue(this.grossPrice)
   }
+  getStatus(){
+    let status:string = this.item.status
+    this.ai.isValid(status)
+  }
   addItem(){
     this.calculateGrossPrice()
+    this.getStatus()
     this.ai.addItem(this.item.value)
     console.log(this.item.value)
 

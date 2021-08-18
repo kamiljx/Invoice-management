@@ -5,17 +5,17 @@ import { invoiceItem } from '../models/invoiceItem';
   providedIn: 'root'
 })
 export class AddItemsService {
-
+  valid: boolean
   itemData: any;
   constructor() { }
 
   addItem(item: any){
-//     console.log("item pushed" + item)
-//     console.log(item)
-// console.log(typeof(item))
     return this.itemData = item
   }
   getItem(){
     return this.itemData 
+  }
+  isValid(status: string){
+    (status === "VALID") ? this.valid = true : this.valid = false
   }
 }

@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Output, ViewChild} from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import {MatTable} from '@angular/material/table';import { invoiceItem } from 'src/app/models/invoiceItem';
+import {MatTable} from '@angular/material/table';
+import { invoiceItem } from 'src/app/models/invoiceItem';
 import { AddItemsService } from 'src/app/services/add-items.service';
 import { CreateInvoiceItemComponent } from './create-invoice-item/create-invoice-item.component';
 
@@ -15,8 +16,6 @@ export class InvoiceItemsComponent  {
   dataSource: invoiceItem[] = [] 
   items: any;
 
-
-  halo: invoiceItem[] = []
   @ViewChild(MatTable) table: MatTable<invoiceItem>;
   @Output() saveData = new EventEmitter()
 
@@ -24,15 +23,23 @@ export class InvoiceItemsComponent  {
   addData() {
     
     const dialogRef = this.dialog?.open(CreateInvoiceItemComponent, {
-      data: {}
     })
 
-    dialogRef?.afterClosed().subscribe(data =>{
+    dialogRef?.afterClosed().subscribe(() =>{
+      if(this.ai?.valid == true){
+        this.onSubmitRenderData()
+        this.ai?.isValid("UNVALID")
+      }
+    })
+  }
+   onSubmitRenderData(){
       this.items = this.ai?.itemData
       this.dataSource.push(this.items);
       this.table.renderRows();
-      console.log(typeof(this.items))
-    })
+  }
+
+  getTotalCost(){
+      return this.dataSource.map(t => t.taxValue).reduce((acc, value) => acc + value, 0);
   }
 
   saveItems(){
