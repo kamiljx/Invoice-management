@@ -1,5 +1,5 @@
-import {Component, EventEmitter, Output, ViewChild} from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import {Component, EventEmitter, Inject, Output, ViewChild} from '@angular/core';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import {MatTable} from '@angular/material/table';
 import { invoiceItem } from 'src/app/models/invoiceItem';
 import { AddItemsService } from 'src/app/services/add-items.service';
@@ -41,9 +41,12 @@ export class InvoiceItemsComponent  {
   getTotalCost(){
       return this.dataSource.map(t => t.taxValue).reduce((acc, value) => acc + value, 0);
   }
-
   saveItems(){
     this.saveData.emit(this.dataSource)
   }
-
+  deleteItem(item:any){
+    const selectedItem = this.dataSource.findIndex(c => c.item === item)
+    this.dataSource.splice(selectedItem, 1)
+    this.table.renderRows()
+  }
 }
