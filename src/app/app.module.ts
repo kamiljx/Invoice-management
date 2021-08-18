@@ -19,6 +19,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatTextComponent } from './forms/mat-text/mat-text.component';
 import { InvoiceItemsComponent } from './dashboard/invoices/add-invoice/invoice-items/invoice-items.component';
 import { CreateInvoiceItemComponent } from './dashboard/invoices/add-invoice/invoice-items/create-invoice-item/create-invoice-item.component';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { environment } from 'src/environments/environment';
+import { InvoiceListComponent } from './dashboard/invoices/invoice-list/invoice-list/invoice-list.component';
 
 
 @NgModule({
@@ -30,6 +34,7 @@ import { CreateInvoiceItemComponent } from './dashboard/invoices/add-invoice/inv
     MatTextComponent,
     InvoiceItemsComponent,
     CreateInvoiceItemComponent,
+    InvoiceListComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,7 +49,9 @@ import { CreateInvoiceItemComponent } from './dashboard/invoices/add-invoice/inv
     MatListModule,
     MaterialModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule
   ],
   providers: [],
   entryComponents: [CreateInvoiceItemComponent],

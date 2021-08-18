@@ -3,7 +3,17 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebase: {
+    apiKey: "AIzaSyCIwalWfxuVO_rGXheBIhcuR3_pNzl30ZU",
+    authDomain: "invoice-management-e4a02.firebaseapp.com",
+    databaseURL: "https://invoice-management-e4a02-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "invoice-management-e4a02",
+    storageBucket: "invoice-management-e4a02.appspot.com",
+    messagingSenderId: "227677434855",
+    appId: "1:227677434855:web:b9eb652ca11800b757c342",
+    measurementId: "G-0Z364TL51R"
+  }
 };
 
 /*

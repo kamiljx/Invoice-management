@@ -12,7 +12,7 @@ import { CreateInvoiceItemComponent } from './create-invoice-item/create-invoice
 })
 export class InvoiceItemsComponent  {
 
-  displayedColumns: string[] = ['id','item', 'itemQuantity', 'netPrice', 'netValue', 'grossPrice', 'taxRate', 'taxValue'];
+  displayedColumns: string[] = ['id','item', 'itemQuantity', 'netPrice', 'netValue', 'grossPrice', 'taxRate', 'taxValue', 'action'];
   dataSource: invoiceItem[] = [] 
   items: any;
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FirebaseService } from 'src/app/services/firebase.service';
 
 @Component({
   selector: 'app-invoices',
@@ -8,11 +9,13 @@ import { Router } from '@angular/router';
 })
 export class InvoicesComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private firebase: FirebaseService) { }
 
   ngOnInit(): void {
+    console.log(this.firebase.getInvoicesList())
   }
   addInvoice(){
     this.router.navigate(['/addInvoice'])
   }
+
 }

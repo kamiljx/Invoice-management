@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { suppilier } from 'src/app/models/suppiler';
+import { FirebaseService } from 'src/app/services/firebase.service';
 
 @Component({
   selector: 'app-add-invoice',
@@ -12,7 +13,8 @@ export class AddInvoiceComponent implements OnInit {
   supplilier = suppilier
   validationErrors: string[] =[]
   invoiceItems: [object] 
-  constructor(private fb: FormBuilder) { 
+
+  constructor(private fb: FormBuilder, private firebase: FirebaseService) { 
 
 
   }
@@ -25,7 +27,7 @@ export class AddInvoiceComponent implements OnInit {
 
   addItem(obj: [object]) {
    this.invoiceItems = obj
-   this.invoice.addControl('invoiceItems', new FormControl(this.invoiceItems))
+   this.invoice.controls['invoiceItems'].setValue(this.invoiceItems)
   }
   initializeForm(){
     this.invoice = this.fb.group({
@@ -36,6 +38,7 @@ export class AddInvoiceComponent implements OnInit {
       taxNo: [, [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
       invoiceDate: [[Validators.required]],
       invoicePaymentDate: [[Validators.required]],
+      invoiceItems: [,[Validators.required, Validators.minLength(1)]]
     })
   }
   onChanges(){
@@ -43,5 +46,8 @@ export class AddInvoiceComponent implements OnInit {
       this.invoiceItems 
     })
   }
-  addInvoice(){}
+  addInvoice(){
+    console.log(this.invoice.value)
+    this.firebase.CreateIncoice(this.invoice.value)
+  }
 }
