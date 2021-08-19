@@ -1,4 +1,5 @@
 export interface invoice {
+    key?: any
     address: string;
     customer: string;
     number: number;

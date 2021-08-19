@@ -22,7 +22,8 @@ import { CreateInvoiceItemComponent } from './dashboard/invoices/add-invoice/inv
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from 'src/environments/environment';
-import { InvoiceListComponent } from './dashboard/invoices/invoice-list/invoice-list/invoice-list.component';
+import { InvoiceListComponent } from './dashboard/invoices/invoice-list/invoice-list.component';
+import { EditInvoiceComponent } from './dashboard/invoices/invoice-list/edit-invoice/edit-invoice.component';
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import { InvoiceListComponent } from './dashboard/invoices/invoice-list/invoice-
     InvoiceItemsComponent,
     CreateInvoiceItemComponent,
     InvoiceListComponent,
+    EditInvoiceComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,8 +52,9 @@ import { InvoiceListComponent } from './dashboard/invoices/invoice-list/invoice-
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule
+    AngularFireModule.initializeApp(environment.firebase, 'angularfs'),
+    AngularFireDatabaseModule,
+
   ],
   providers: [],
   entryComponents: [CreateInvoiceItemComponent],

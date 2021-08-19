@@ -12,7 +12,6 @@ export class InvoicesComponent implements OnInit {
   constructor(private router: Router, private firebase: FirebaseService) { }
 
   ngOnInit(): void {
-    console.log(this.firebase.getInvoicesList())
   }
   addInvoice(){
     this.router.navigate(['/addInvoice'])
