@@ -1,0 +1,51 @@
+<div class="container">
+    <form [formGroup]='item' (ngSubmit)="addItem()" autocomplete="off">
+        <div class="row">
+            <div class="col-lg-8">
+                <app-mat-text [formControl]='item.controls["item"]' [validate]='"item"' [label]='"item"' [type]='"text"'
+                    [placeholder]='"Item detail"' [hint]='"Item"'></app-mat-text>
+            </div>
+            <div class="col-lg-4">
+                <app-mat-text [formControl]='item.controls["itemQuantity"]' [validate]='"itemQuantity"'
+                    [label]='"itemQuantity"' [type]='"number"' [placeholder]='"itemQuantity"' [hint]='"itemQuantity"'>
+                </app-mat-text>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8">
+                <app-mat-text [formControl]='item.controls["netPrice"]' [validate]='"netPrice"' [label]='"netPrice"'
+                    [type]='"number"' [placeholder]='"netPrice"' [hint]='"netPrice"'></app-mat-text>
+            </div>
+
+            <div class="col-lg-4">
+                <mat-form-field appearance="fill" class="mat-select">
+                    <mat-label>Tax rate</mat-label>
+                    <mat-select disableRipple [formControl]='item.controls["taxRate"]'>
+                        <mat-option *ngFor="let elem of taxRate" [value]="elem.value">{{elem.value}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <label> Net value</label>
+                <p>{{netValue | currency}}</p>
+            </div>
+            <div class="col-lg-4">
+                <label> Gross value</label>
+                <p>{{grossPrice | currency}}</p>
+            </div>
+            <div class="col-lg-4">
+                <label> Tax value</label>
+                <p>{{taxValue | currency}}</p>
+            </div>
+        </div>
+    </form>
+    <div class="button-row">
+        <mat-dialog-actions align="end">
+            <button mat-raised-button matDialogClose>Cancel</button>
+            <button mat-raised-button color="primary" mat-dialog-close [disabled]="!item.valid" (click)="addItem()"
+                type="submit">Submit</button>
+        </mat-dialog-actions>
+    </div>
+</div>

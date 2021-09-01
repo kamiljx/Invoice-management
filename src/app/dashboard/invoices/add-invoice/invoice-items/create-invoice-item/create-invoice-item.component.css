@@ -1,0 +1,10 @@
+.container {
+  margin: 25px;
+}
+.mat-form-field {
+  position: relative;
+}
+.mat-select {
+  margin: 5px;
+  width: 95%;
+}

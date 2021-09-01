@@ -1,0 +1,12 @@
+<div class="form-group">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>{{label}}</mat-label>
+      <input type="{{type}}" matInput 
+        placeholder="{{placeholder}}"
+        [formControl]="ngControl.control">
+      <mat-error *ngIf="validate.invalid && validate.touched">error</mat-error>
+
+      <mat-hint>{{hint}}</mat-hint>
+  </mat-form-field>
+</div>
+

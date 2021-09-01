@@ -1,0 +1,77 @@
+<div class="container">
+    <div class="demo-button-container">
+        <button mat-raised-button (click)="addData()" class="demo-button">
+            Add items
+        </button>
+    </div>
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+        <!-- Position Column -->
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef>No.</th>
+            <td mat-cell *matCellDef="let element let i = index">{{i +1}}</td>
+            <td mat-footer-cell *matFooterCellDef> </td>
+        </ng-container>
+        <ng-container matColumnDef="item">
+            <th mat-header-cell *matHeaderCellDef>Item</th>
+            <td mat-cell *matCellDef="let element">{{element.item}}</td>
+            <td mat-footer-cell *matFooterCellDef> </td>
+        </ng-container>
+
+        <!-- Name of product -->
+        <ng-container matColumnDef="itemQuantity">
+            <th mat-header-cell *matHeaderCellDef>Quantity</th>
+            <td mat-cell *matCellDef="let element">{{element.itemQuantity | number}}</td>
+            <td mat-footer-cell *matFooterCellDef> </td>
+        </ng-container>
+
+        <!-- Net price -->
+        <ng-container matColumnDef="netPrice">
+            <th mat-header-cell *matHeaderCellDef>Net price</th>
+            <td mat-cell *matCellDef="let element">{{element.netPrice | currency}}</td>
+            <td mat-footer-cell *matFooterCellDef> </td>
+        </ng-container>
+
+        <!-- Net value -->
+        <ng-container matColumnDef="netValue">
+            <th mat-header-cell *matHeaderCellDef>Net value</th>
+            <td mat-cell *matCellDef="let element">{{element.netValue | currency}}</td>
+            <td mat-footer-cell *matFooterCellDef> </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="grossPrice">
+            <th mat-header-cell *matHeaderCellDef>Gross price</th>
+            <td mat-cell *matCellDef="let element">{{element.grossPrice | currency}}</td>
+            <td mat-footer-cell *matFooterCellDef> </td>
+        </ng-container>
+
+        <!-- Tax rate -->
+        <ng-container matColumnDef="taxRate">
+            <th mat-header-cell *matHeaderCellDef>Tax rate</th>
+            <td mat-cell *matCellDef="let element">{{element.taxRate }}</td>
+            <td mat-footer-cell *matFooterCellDef> Total </td>
+        </ng-container>
+
+        <!-- Tax value -->
+        <ng-container matColumnDef="taxValue">
+            <th mat-header-cell *matHeaderCellDef>Tax value</th>
+            <td mat-cell *matCellDef="let element">{{element.taxValue | currency}}</td>
+            <td mat-footer-cell *matFooterCellDef> {{getTotalCost() | currency}} </td>
+        </ng-container>
+        <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef>Action</th>
+            <td mat-cell *matCellDef="let element">
+                <mat-icon (click)="deleteItem(element.item)">delete</mat-icon>
+            </td>
+            <td mat-footer-cell *matFooterCellDef> {{getTotalCost() | currency}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        <tr mat-footer-row *matFooterRowDef="displayedColumns; sticky: true"></tr>
+
+
+    </table>
+    <button mat-raised-button class="saveButton" (click)="saveItems()">Save</button>
+</div>
